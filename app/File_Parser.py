@@ -85,7 +85,7 @@ class Parser():
         future use with data files.
         
         Note:
-            BOOLEAN and INTEGER datatypes will be replaced by INT
+            BOOLEAN will be replaced by INTEGER
         
         Args:
             filepath: the filepath for the file to be read 
@@ -115,8 +115,8 @@ class Parser():
             c, w, d = line.strip().split(',')
             result.append(c)
             sizes.append(w)
-            if d == 'BOOLEAN' or d == 'INTEGER':
-                d = "INT"
+            if d == 'BOOLEAN':
+                d = 'INTEGER'
             result.append(d)
 
         #Add a mapping of the format to its sizes
