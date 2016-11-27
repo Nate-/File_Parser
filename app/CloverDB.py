@@ -24,6 +24,10 @@ class sqlite3_DB():
         self.conn = None
         self.cursor = None
         
+        #Create directory for database if it doesn't already exist
+        if not os.path.exists(os.path.dirname(self.db)):
+            os.makedirs(os.path.dirname(self.db))
+        
     def __connect(self):
         """Establishes a connection to the database."""
         self.conn = sqlite3.connect(self.db)
