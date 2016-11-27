@@ -1,9 +1,9 @@
 ## Problem definition
 
-You receive drops of data files and specification files. Write an application
-in language of choice that will load these files into a database.
+Drops of data files and specification files need to be loaded these files into 
+a database.
 
-## Problem details
+## Problem specifications
 
 Data files will be dropped in the folder "data/" relative to your application
 and specification files will be dropped in the folder "specs/" relative to
@@ -60,13 +60,15 @@ Barzane   | False |   -12
 Quuxitude | True  |   103 
 ```
 
-## Expectations
+## Usage Guide
 
-- Your application can be written with language/libraries of your choosing.
-- Database type and connection mechanism is left to your discretion.
-- You should include tests that cover, at least, the examples given.
-- You should implement the conversions for the SQL data types: TEXT, BOOLEAN,
-and INTEGER
-- Files can be assumed to use UTF-8 encoding
-- You should be prepared to discuss implementation decisions and possible
-extensions to your application.
+1. Create a Parser_Manager object
+2. Load the specification file into the Parser_Manager
+3. Run the Parser_Manager with any files with that specification
+
+For example:
+```python
+pm = Parser_Manager()
+pm.load_spec_file("specs/testformat1.csv")
+pm.run("data/testformat1_2015-06-28.txt")
+```
