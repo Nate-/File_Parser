@@ -138,7 +138,7 @@ class Parser():
                         e.g. 'data/testformat1_2015-06-28.txt'
                         
         Returns:
-            A list that contains a list of strings with the column values for 
+            A list that contains a tuple of strings with the column values for 
             every row.
             
         Exceptions:
@@ -167,6 +167,6 @@ class Parser():
             for sz in column_sizes:
                 tmp.append(line[current : current + int(sz)].strip())
                 current += int(sz)
-            result.append(tmp)
+            result.append(tuple(tmp))
         
         return result
