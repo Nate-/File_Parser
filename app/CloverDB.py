@@ -60,7 +60,8 @@ class sqlite3_DB():
             #the last column name and datatype pair
             query += "{} {},".format(column_data[i], column_data[i+1])
         #Add the last column name and datatype pair
-        query += "{} {})".format(column_data[length - 2], column_data[length - 1])
+        if length > 1:
+            query += "{} {})".format(column_data[length - 2], column_data[length - 1])
         
         #Execute query to create table
         self.cursor.execute(query)
